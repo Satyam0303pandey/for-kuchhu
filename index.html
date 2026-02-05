@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Kuchhu ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:linear-gradient(#ffe6f0,#ffffff);
+  display:flex;
+  justify-content:center;
+  overflow-x:hidden;
+}
+.container{
+  width:100%;
+  max-width:440px;
+  padding:20px;
+}
+section{display:none;}
+section.active{display:block;}
+.card{
+  background:#fff;
+  border-radius:28px;
+  padding:30px 25px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  text-align:center;
+}
+h1{color:#e6005c;font-size:30px;}
+h2{color:#e6005c;font-size:24px;}
+p{font-size:18px;line-height:1.8;}
+button{
+  background:#ff4d88;
+  border:none;
+  padding:14px;
+  color:#fff;
+  border-radius:30px;
+  font-size:18px;
+  margin:10px 0;
+  cursor:pointer;
+  width:100%;
+}
+.options button{margin-top:8px;}
+.reply{
+  display:none;
+  margin-top:15px;
+  color:#e6005c;
+  font-size:17px;
+}
+.nav{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+.nav button{width:50%;}
+iframe{
+  width:100%;
+  height:420px;
+  border-radius:18px;
+}
+img{
+  width:100%;
+  border-radius:22px;
+}
+.yesno{
+  display:flex;
+  gap:12px;
+  margin-top:20px;
+}
+.yesno button{width:50%;}
+#no{position:relative;}
+
+/* ===== ADD 1 & 2 ===== */
+.music-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#ff4d88;
+  color:#fff;
+  font-size:22px;
+  border:none;
+  z-index:999;
+}
+.heart{
+  position:fixed;
+  color:#ff4d88;
+  font-size:18px;
+  animation:float 6s linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(100vh);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* ===== ADD 3 ===== */
+.hidden-note{
+  display:none;
+  margin-top:20px;
+  background:#ffe6f0;
+  padding:18px;
+  border-radius:18px;
+  color:#e6005c;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ADD 1: MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
+<div class="container">
+
+<!-- INTRO -->
+<section class="active" id="intro">
+<div class="card">
+<h1>Hey Kuchhu ❤️</h1>
+<p>
+This is not a normal page.<br><br>
+Before I say anything,<br>
+I want to understand something 🤍
+</p>
+<button type="button" onclick="go('q1')">Start ➡</button>
+</div>
+</section>
+
+<!-- QUIZ 1 -->
+<section id="q1">
+<div class="card">
+<h2>Question 1 🤍</h2>
+<p>What matters most to Betu right now?</p>
+<div class="options">
+<button type="button" onclick="showReply('r1a')">💰 Money</button>
+<button type="button" onclick="showReply('r1b')">💼 Career</button>
+<button type="button" onclick="showReply('r1c')">❤️ Someone who stays</button>
+</div>
+<p id="r1a" class="reply">You are right. Money matters, but your support matters more. I will work hard and prove it.</p>
+<p id="r1b" class="reply">Career matters. I promise I will grow and prove your belief right.</p>
+<p id="r1c" class="reply">Staying in hard times is real love. I promise to stay and prove it.</p>
+<div class="nav">
+<button type="button" onclick="go('intro')">⬅ Previous</button>
+<button type="button" onclick="go('q2')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<!-- QUIZ 2 -->
+<section id="q2">
+<div class="card">
+<h2>Question 2 😊</h2>
+<p>How does Betu feel when he is with you, Laddu?</p>
+<div class="options">
+<button type="button" onclick="showReply('r2a')">😐 Normal</button>
+<button type="button" onclick="showReply('r2b')">😄 Happy</button>
+<button type="button" onclick="showReply('r2c')">😌 Peaceful</button>
+</div>
+<p id="r2a" class="reply">Normal moments feel comfortable with you.</p>
+<p id="r2b" class="reply">You make me genuinely happy. I will protect that smile.</p>
+<p id="r2c" class="reply">You give me peace. I promise to give the same.</p>
+<div class="nav">
+<button type="button" onclick="go('q1')">⬅ Previous</button>
+<button type="button" onclick="go('q3')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<!-- QUIZ 3 -->
+<section id="q3">
+<div class="card">
+<h2>Question 3 🌸</h2>
+<p>Who supported Betu when life was difficult?</p>
+<div class="options">
+<button type="button" onclick="showReply('r3a')">⏳ Time</button>
+<button type="button" onclick="showReply('r3b')">🍀 Luck</button>
+<button type="button" onclick="showReply('r3c')">💖 You, Bachha</button>
+</div>
+<p id="r3a" class="reply">Time heals, but it doesn’t support.</p>
+<p id="r3b" class="reply">Luck doesn’t care — people do.</p>
+<p id="r3c" class="reply">You supported me emotionally and financially.</p>
+<div class="nav">
+<button type="button" onclick="go('q2')">⬅ Previous</button>
+<button type="button" onclick="go('quizEnd')">Finish Quiz ➡</button>
+</div>
+</div>
+</section>
+
+<!-- QUIZ END -->
+<section id="quizEnd">
+<div class="card">
+<h2>What I realised 🤍</h2>
+<p>
+From your answers,<br>
+I realised you value<br>
+understanding, peace,<br>
+and staying together.
+</p>
+<div class="nav">
+<button type="button" onclick="go('q3')">⬅ Previous</button>
+<button type="button" onclick="go('feel1')">Continue ➡</button>
+</div>
+</div>
+</section>
+
+<!-- FEELINGS -->
+<section id="feel1">
+<div class="card">
+<h2>You 🤍</h2>
+<p>
+You are very beautiful.<br>
+Your eyes are incredibly beautiful.<br>
+For me, no one is better than you in this universe.
+</p>
+<div class="nav">
+<button type="button" onclick="go('quizEnd')">⬅ Previous</button>
+<button type="button" onclick="go('feel2')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<section id="feel2">
+<div class="card">
+<h2>Grateful 🤍</h2>
+<p>
+You pulled me out of many problems.<br>
+You always supported me.<br>
+I promise I will always support you too.
+</p>
+<div class="nav">
+<button type="button" onclick="go('feel1')">⬅ Previous</button>
+<button type="button" onclick="go('feel3')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<section id="feel3">
+<div class="card">
+<h2>With You 🌱</h2>
+<p>
+When you are near me,<br>
+I feel truly happy.<br>
+I never get bored with you.<br><br>
+Even when I don’t have a job right now,<br>
+you support me emotionally and financially.
+</p>
+<div class="nav">
+<button type="button" onclick="go('feel2')">⬅ Previous</button>
+<button type="button" onclick="go('video1')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<!-- VIDEO 1 -->
+<section id="video1">
+<div class="card">
+<h2>Silent Smiles 🤍</h2>
+<p>
+Your childhood dance.<br>
+Whenever I watch this,<br>
+I smile quietly without realising it 😊
+</p>
+<iframe src="https://www.youtube.com/embed/KHVdFQw_HcQ?rel=0" allowfullscreen></iframe>
+<div class="nav">
+<button type="button" onclick="go('feel3')">⬅ Previous</button>
+<button type="button" onclick="go('video2')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<!-- VIDEO 2 -->
+<section id="video2">
+<div class="card">
+<h2>Best Moments ❤️</h2>
+<p>
+These moments with you<br>
+are the best moments of my life.
+</p>
+<iframe src="https://www.youtube.com/embed/r0L1LyF7Wek?rel=0" allowfullscreen></iframe>
+<div class="nav">
+<button type="button" onclick="go('video1')">⬅ Previous</button>
+<button type="button" onclick="go('imagePage')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<!-- IMAGE -->
+<section id="imagePage">
+<div class="card">
+<h2>Simple & Special 🤍</h2>
+<p>
+Even simple moments with you<br>
+became memories I will always keep.
+</p>
+<img src="image.jpg">
+<div class="nav">
+<button type="button" onclick="go('video2')">⬅ Previous</button>
+<button type="button" onclick="go('final')">Next ➡</button>
+</div>
+</div>
+</section>
+
+<!-- FINAL -->
+<section id="final">
+<div class="card">
+<h2>My Kuchhu 💕</h2>
+<p>
+My Jaan 🤍<br>
+My Bachha 🌸<br>
+My Laddu 🍬
+</p>
+<p>
+Quietly…<br>
+you mean everything to me.
+</p>
+
+<h1>Will you be my Valentine? 🌹</h1>
+
+<div class="yesno">
+<button type="button" onclick="go('yesPage')">YES 💖</button>
+<button type="button" id="no" onmouseover="move()">NO ❌</button>
+</div>
+
+<!-- ADD 3 -->
+<button type="button" onclick="toggleNote()">One last thing… 💌</button>
+<div id="note" class="hidden-note">
+You came into my life quietly,<br>
+but changed everything forever 🤍
+</div>
+
+<p style="margin-top:20px;">— Betu 🤍</p>
+</div>
+</section>
+
+<!-- YES PAGE -->
+<section id="yesPage">
+<div class="card">
+<h1>❤️❤️❤️</h1>
+<h2>You just made me the happiest 🤍</h2>
+<p>
+Thank you for choosing me.<br><br>
+I promise I will always stand with you,<br>
+care for you,<br>
+and respect you — no matter what.
+</p>
+<button type="button" onclick="go('promise')">One more thing 🤍</button>
+</div>
+</section>
+
+<!-- ADD 5: PROMISE PAGE -->
+<section id="promise">
+<div class="card">
+<h2>My Promise 🤍</h2>
+<p>
+• I will respect you<br>
+• I want to become the person you want to see in me.<br>
+• I want to do everything you wish for.<br>
+• I want to do so much for you—maybe I can’t express it well right now,but one day I will prove it<br>
+• I will make everything right,just please stay with me.<br>
+• I will grow with you
+</p>
+<h2>— Betu 🤍</h2>
+</div>
+</section>
+
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('section').forEach(function(sec){
+    sec.classList.remove('active');
+    sec.style.display="none";
+  });
+  var target=document.getElementById(id);
+  if(target){
+    target.style.display="block";
+    target.classList.add('active');
+    window.scrollTo(0,0);
+  }
+}
+function showReply(id){
+  document.querySelectorAll('.reply').forEach(r=>r.style.display="none");
+  document.getElementById(id).style.display="block";
+}
+function move(){
+  var n=document.getElementById('no');
+  n.style.left=(Math.random()*160-80)+'px';
+  n.style.top=(Math.random()*160-80)+'px';
+}
+function toggleMusic(){
+  var m=document.getElementById('bgMusic');
+  m.paused ? m.play() : m.pause();
+}
+function toggleNote(){
+  var n=document.getElementById('note');
+  n.style.display = n.style.display==="block" ? "none" : "block";
+}
+
+/* ADD 2 */
+setInterval(()=>{
+  let h=document.createElement('div');
+  h.className='heart';
+  h.innerHTML='❤️';
+  h.style.left=Math.random()*100+'vw';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},900);
+</script>
+
+</body>
+</html>
